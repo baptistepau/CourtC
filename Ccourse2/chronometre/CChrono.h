@@ -14,5 +14,6 @@ public :
 	bool Reset();
 	void lireTemps(unsigned short* h, int* mn, int* s, int* c);
 	bool lireTemps(char* temp, int taille);
+	int lireHoraire();
 };
 

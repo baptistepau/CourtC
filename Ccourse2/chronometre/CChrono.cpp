@@ -109,3 +109,7 @@ bool CChrono::lireTemps(char* temp, int taille)
 
 	}
 }
+int CChrono::lireHoraire()
+{
+	return (clock() - clockStart);
+}
