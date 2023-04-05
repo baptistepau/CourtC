@@ -4,6 +4,7 @@
 class Ccourse
 {
 private:
+	bool etatCourse		;
 	CChrono leChrono;
 	CParticipant lesParticipant[10];
 public :
@@ -11,6 +12,7 @@ public :
 	~Ccourse();
 	bool Demarrer();
 	bool Arreter();
+	bool reset();
 	bool lireTempsCourse(char* temps, int taille);
 	bool lireMeilleurTemps(int participant, char* temps, int taille);
 	bool lireDerniersTempsTours(int participant, char* temps, int taille);
