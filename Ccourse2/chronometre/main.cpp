@@ -20,17 +20,17 @@ int main(void)
 		case 1:
 			if (laCourse.Demarrer() == true)
 			{
-				cout << "La course est demarrer" << endl;
+				cout << "La course est demarree" << endl;
 			}
 			else
 			{
-				cout << "La course et deja demarrer" << endl;
+				cout << "La course est deja demarree" << endl;
 			}
 			break;
 		case 2 :
 			if (laCourse.Arreter() == true)
 			{
-				cout << "La course est arreter" << endl;
+				cout << "La course est arretee" << endl;
 			}
 			else
 			{
@@ -64,7 +64,7 @@ int main(void)
 			{
 				cout << "Quelle prarticipant voulez-vous voir le meilleur temps  : [0 a 10 ]" << endl;
 				cin >> varParticipant;
-			} while (varParticipant >= 10);
+			} while (varParticipant > 10);
 			if (laCourse.lireMeilleurTemps(varParticipant, temps, taille) == true)
 			{
 				cout << "La meilleur course du participant " << varParticipant << " est " << temps << endl;
@@ -80,7 +80,7 @@ int main(void)
 			{
 				cout << "Quelle prarticipant voulez-vous voir le temps du dernier tours : [0 a 10 ]" << endl;
 				cin >> varParticipant;
-			} while (varParticipant >= 10);
+			} while (varParticipant > 10);
 			if (laCourse.lireMeilleurTemps(varParticipant, temps, taille) == true)
 			{
 				cout << "Le dernier temps du participant " << taille << " est " << temps << endl;
@@ -95,7 +95,7 @@ int main(void)
 			{
 				cout << "Quelle prarticipant voulez-vous voir le nombre de tours : [0 a 10 ]" << endl;
 				cin >> varParticipant;
-			} while (varParticipant >= 10);
+			} while (varParticipant >10);
 			cout << "Le nombre de de tours du participant " << varParticipant << " est " << laCourse.lireNbTours(varParticipant) << endl;
 			break;
 		case 8 :
@@ -103,7 +103,7 @@ int main(void)
 			{
 				cout << "Quelle prarticipant voulez-vous rajouter un tours : [0 a 10 ]" << endl;
 				cin >> varParticipant;
-			} while (varParticipant >= 10);
+			} while (varParticipant > 10);
 			if (laCourse.AjoutTours(varParticipant) == true)
 			{
 				cout << "Tour ajouter" << endl;

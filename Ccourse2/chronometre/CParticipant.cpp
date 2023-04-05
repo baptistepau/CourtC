@@ -13,6 +13,10 @@ CParticipant::~CParticipant()
 {
 
 }
+void CParticipant::demmarer()
+{
+	horairePrecedentPasage = clock();
+}
 void CParticipant::ajouterTours(int time)
 {
 	nbreTours++;

@@ -9,6 +9,7 @@ private :
 public :
 	CParticipant();
 	~CParticipant();
+	void demmarer();
 	void ajouterTours(int time);
 	bool lireMeilleurTours(char* temp, int taille);
 	bool lireDernierTours(char* temp, int taille);

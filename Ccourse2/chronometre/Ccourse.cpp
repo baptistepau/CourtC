@@ -13,7 +13,16 @@ Ccourse::~Ccourse()
 }
 bool Ccourse::Demarrer()
 {
-	return leChrono.Start();
+	if (leChrono.Start() == true)
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			lesParticipant[i].demmarer();
+		}
+		return true;
+	}
+	else
+		return false;
 }
 
 bool Ccourse::Arreter()
