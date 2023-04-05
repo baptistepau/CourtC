@@ -6,6 +6,7 @@ private :
 	int meilleurTours;
 	int dernierTemps;
 	int horairePrecedentPasage;
+	bool transformationHorraire(char* temp, int taille, int temps);
 public :
 	CParticipant();
 	~CParticipant();
@@ -14,6 +15,5 @@ public :
 	bool lireMeilleurTours(char* temp, int taille);
 	bool lireDernierTours(char* temp, int taille);
 	int lireNbTours();
-	void reset();
 };
 

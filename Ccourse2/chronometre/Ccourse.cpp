@@ -33,19 +33,6 @@ bool Ccourse::Arreter()
 		return false;
 }
 
-bool Ccourse::reset()
-{
-	if (leChrono.Reset() == true)
-	{
-		for (int i = 0; i < 10; i++)
-		{
-			lesParticipant[i].reset();
-		}
-		return true;
-	}
-	else
-		return false;
-}
 
 bool Ccourse::lireTempsCourse(char* temps, int taille)
 {

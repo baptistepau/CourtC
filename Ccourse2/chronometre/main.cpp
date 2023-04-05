@@ -13,7 +13,7 @@ int main(void)
 	cout << "_____________________________________________________________________\n|                                  course                            |\n_____________________________________________________________________" << endl;
 	do
 	{
-		cout << "1.Demarrer la course\n2.Arreter la course\n3.Remettre a zero\n4.Temps de course\n5.Meilleur temps\n6.Derniers temps\n7.Nombre de tours\n8.Ajouter un tours\n0.Quitter" << endl;
+		cout << "1.Demarrer la course\n2.Arreter la course\n3.Temps de course\n4.Meilleur temps\n5.Derniers temps\n6.Nombre de tours\n7.Ajouter un tours\n0.Quitter" << endl;
 		cin >> varleurBoucle;
 		switch (varleurBoucle)
 		{
@@ -38,16 +38,6 @@ int main(void)
 			}
 			break;
 		case 3 :
-			if (laCourse.reset() == true)
-			{
-				cout << "La course a ete remis a zero" << endl;
-			}
-			else
-			{
-				cout << "Avant de remettre la course a zero arreter la" << endl;
-			}
-			break;
-		case 4 :
 			taille = 12;
 			if (laCourse.lireTempsCourse(temps, taille) == true)
 			{
@@ -58,11 +48,11 @@ int main(void)
 				cout << "La taille du tableau est trop petit" << endl;
 			}
 			break;
-		case 5 :
+		case 4 :
 			taille = 12;
 			do
 			{
-				cout << "Quelle prarticipant voulez-vous voir le meilleur temps  : [0 a 10 ]" << endl;
+				cout << "Quelle prarticipant voulez-vous voir le meilleur temps  : [0 a 9]" << endl;
 				cin >> varParticipant;
 			} while (varParticipant > 10);
 			if (laCourse.lireMeilleurTemps(varParticipant, temps, taille) == true)
@@ -74,11 +64,11 @@ int main(void)
 				cout << "La taille de la chaine de carractére est trop petite" << endl;
 			}
 			break;
-		case 6 :
+		case 5 :
 			taille = 12;
 			do
 			{
-				cout << "Quelle prarticipant voulez-vous voir le temps du dernier tours : [0 a 10 ]" << endl;
+				cout << "Quelle prarticipant voulez-vous voir le temps du dernier tours : [0 a 9]" << endl;
 				cin >> varParticipant;
 			} while (varParticipant > 10);
 			if (laCourse.lireMeilleurTemps(varParticipant, temps, taille) == true)
@@ -90,18 +80,18 @@ int main(void)
 				cout << "La taille de la chaine de carractére est trop petite" << endl;
 			}
 			break;
-		case 7 :
+		case 6 :
 			do
 			{
-				cout << "Quelle prarticipant voulez-vous voir le nombre de tours : [0 a 10 ]" << endl;
+				cout << "Quelle prarticipant voulez-vous voir le nombre de tours : [0 a 9]" << endl;
 				cin >> varParticipant;
 			} while (varParticipant >10);
 			cout << "Le nombre de de tours du participant " << varParticipant << " est " << laCourse.lireNbTours(varParticipant) << endl;
 			break;
-		case 8 :
+		case 7 :
 			do
 			{
-				cout << "Quelle prarticipant voulez-vous rajouter un tours : [0 a 10 ]" << endl;
+				cout << "Quelle prarticipant voulez-vous rajouter un tours : [0 a 9]" << endl;
 				cin >> varParticipant;
 			} while (varParticipant > 10);
 			if (laCourse.AjoutTours(varParticipant) == true)
@@ -118,7 +108,7 @@ int main(void)
 		}
 	} while (varleurBoucle != 0);
 	cout << "Au revoir" << endl;
-	return 0;
+	return 1;
 }
 
 
