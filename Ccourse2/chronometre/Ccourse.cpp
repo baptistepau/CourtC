@@ -4,7 +4,7 @@
 
 Ccourse::Ccourse()
 {
-	etatCourse = false;
+
 }
 
 Ccourse::~Ccourse()
@@ -13,59 +13,29 @@ Ccourse::~Ccourse()
 }
 bool Ccourse::Demarrer()
 {
-	if (etatCourse == false)
-	{
-		if (leChrono.Start() == true)
-		{
-			return true;
-		}	
-		else
-		{
-			return false;
-		}		
-	}
-	else
-	{
-		return false;
-	}
+	return leChrono.Start();
 }
 
 bool Ccourse::Arreter()
 {
-	if (etatCourse == true)
-	{
-		if (leChrono.Stop() == true)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
+	if (leChrono.Stop() == true)
+		return true;
 	else
-	{
 		return false;
-	}
 }
 
 bool Ccourse::reset()
 {
-	if (etatCourse == false)
+	if (leChrono.Reset() == true)
 	{
-		if (leChrono.Reset() == true)
+		for (int i = 0; i < 10; i++)
 		{
-			return true;
+			lesParticipant[i].reset();
 		}
-		else
-		{
-			return false;
-		}
+		return true;
 	}
 	else
-	{
 		return false;
-	}
 }
 
 bool Ccourse::lireTempsCourse(char* temps, int taille)
@@ -117,4 +87,15 @@ bool Ccourse::lireDerniersTempsTours(int participant, char* temps, int taille)
 int Ccourse::lireNbTours(int participant)
 {
 	return lesParticipant[participant].lireNbTours();
+}
+
+bool Ccourse::AjoutTours(int participant)
+{
+	if (leChrono.getEtatChrono() == true)
+	{
+		lesParticipant[participant].ajouterTours(leChrono.lireHoraire());
+		return true;
+	}
+	else
+		return false;
 }

@@ -3,7 +3,7 @@ class CParticipant
 {
 private :
 	int nbreTours;
-	int meileurTours;
+	int meilleurTours;
 	int dernierTemps;
 	int horairePrecedentPasage;
 public :
@@ -13,6 +13,6 @@ public :
 	bool lireMeilleurTours(char* temp, int taille);
 	bool lireDernierTours(char* temp, int taille);
 	int lireNbTours();
-
+	void reset();
 };
 

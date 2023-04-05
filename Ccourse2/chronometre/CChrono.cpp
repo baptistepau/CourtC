@@ -113,3 +113,7 @@ int CChrono::lireHoraire()
 {
 	return (clock() - clockStart);
 }
+bool CChrono::getEtatChrono()
+{
+	return etat;
+}
