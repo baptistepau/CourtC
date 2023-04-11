@@ -31,6 +31,8 @@ void CChronoGraphDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CChronoGraphDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_STN_CLICKED(IDC_TEMPS, &CChronoGraphDlg::OnStnClickedTemps)
+	ON_BN_CLICKED(IDC_QUIT, &CChronoGraphDlg::OnBnClickedQuit)
 END_MESSAGE_MAP()
 
 
@@ -86,3 +88,15 @@ HCURSOR CChronoGraphDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CChronoGraphDlg::OnStnClickedTemps()
+{
+	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+}
+
+
+void CChronoGraphDlg::OnBnClickedQuit()
+{
+	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+}
