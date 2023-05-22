@@ -19,6 +19,7 @@
 
 CChronoGraphDlg::CChronoGraphDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_CHRONOGRAPH_DIALOG, pParent)
+	, m_csTemps(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -26,13 +27,17 @@ CChronoGraphDlg::CChronoGraphDlg(CWnd* pParent /*=nullptr*/)
 void CChronoGraphDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_AFF, m_csTemps);
+	DDX_Control(pDX, IDC_AFF, m_ctlAFF);
 }
 
 BEGIN_MESSAGE_MAP(CChronoGraphDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_STN_CLICKED(IDC_TEMPS, &CChronoGraphDlg::OnStnClickedTemps)
+	ON_BN_CLICKED(IDC_DDEMARRER, &CChronoGraphDlg::OnBnClickedDdemarrer)
+	ON_BN_CLICKED(IDC_STOP, &CChronoGraphDlg::OnBnClickedStop)
 	ON_BN_CLICKED(IDC_QUIT, &CChronoGraphDlg::OnBnClickedQuit)
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 
@@ -48,6 +53,10 @@ BOOL CChronoGraphDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Définir une petite icône
 
 	// TODO: ajoutez ici une initialisation supplémentaire
+	// Changement poilce caractère affichage
+	PoliceAFF.CreatePointFont(300, L"Comic sans MS", NULL);
+	m_ctlAFF.SetFont(&PoliceAFF);
+
 
 	return TRUE;  // retourne TRUE, sauf si vous avez défini le focus sur un contrôle
 }
@@ -90,13 +99,38 @@ HCURSOR CChronoGraphDlg::OnQueryDragIcon()
 
 
 
-void CChronoGraphDlg::OnStnClickedTemps()
+void CChronoGraphDlg::OnBnClickedDdemarrer()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	if (!monChrono.Start())
+	{
+		SetTimer(TIMER, 10, NULL);
+		MessageBox(L"Impossible de lancer le chrono");
+	}
+}
+
+
+void CChronoGraphDlg::OnBnClickedStop()
+{
+	if (!monChrono.Stop())
+	{
+		KillTimer(TIMER);
+		MessageBox(L"Impossible de lancer le chrono");
+	}
 }
 
 
 void CChronoGraphDlg::OnBnClickedQuit()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	OnOK();
+}
+
+
+void CChronoGraphDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	// TODO: ajoutez ici le code de votre gestionnaire de messages et/ou les paramètres par défaut des appels
+	char temps[12];
+	monChrono.lireTemps(temps, 12);
+	m_csTemps = CString(temps);
+	UpdateData(FALSE);
+	CDialogEx::OnTimer(nIDEvent);
 }

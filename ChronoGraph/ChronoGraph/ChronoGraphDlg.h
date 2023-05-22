@@ -3,7 +3,7 @@
 //
 
 #pragma once
-
+#include"CChrono.h"
 
 // boîte de dialogue de CChronoGraphDlg
 class CChronoGraphDlg : public CDialogEx
@@ -31,6 +31,14 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnStnClickedTemps();
+	afx_msg void OnBnClickedDdemarrer();
+	afx_msg void OnBnClickedStop();
+private:
+	CChrono monChrono;
+	CString m_csTemps;
+public:
 	afx_msg void OnBnClickedQuit();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
+	CStatic m_ctlAFF;
+	CFont PoliceAFF;
 };
