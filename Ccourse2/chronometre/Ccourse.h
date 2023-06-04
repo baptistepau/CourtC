@@ -1,11 +1,14 @@
 #pragma once
 #include "CChrono.h"
 #include "CParticipant.h"
+
+#define MAXPARTICIPANT 10
+
 class Ccourse
 {
 private:
 	CChrono leChrono;
-	CParticipant lesParticipant[10];
+	CParticipant lesParticipant[MAXPARTICIPANT];
 public :
 	Ccourse();
 	~Ccourse();
